@@ -16,6 +16,15 @@ class Mitra extends Migration
             'kabko_id'  =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
             'kecamatan_id'  =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
             'kelurahan_id'  =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
+            'email'         =>['type'=>'varchar', 'constraint'=>255],
+            'nohp'         =>['type'=>'varchar', 'constraint'=>16],
+            'sandi'         =>['type'=>'varchar', 'constraint'=>60],
+            'token_reset'         =>['type'=>'varchar', 'constraint'=>10],
+            'aktif'         =>['type'=>'enum("Y", "T")'],
+            'foto'          =>['type'=>'varchar', 'constraint'=>255],
+            'created_at'   =>['type'=>'datetime'],
+            'updated_at'   =>['type'=>'datetime'],
+            'deleted_at'   =>['type'=>'datetime']
         ]);
     }
 

@@ -12,7 +12,7 @@ class KategoriProduk extends Migration
             'id'        =>['type'=>'int', 'constraint'=>10, 'null'=>true, 'unsigned'=>true, 'auto_increment'=>true],
             'kategori'  =>['type'=>'varchar', 'constraint'=>100, 'null'=>true],
             'parent_id' =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
-            'aktif'     =>['type'=>'enum', 'constraint'=>]
+            'aktif'     =>['type'=>'enum("Y","T")']
         ]);
     }
 
