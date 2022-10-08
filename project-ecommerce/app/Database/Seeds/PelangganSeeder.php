@@ -2,20 +2,25 @@
 
 namespace App\Database\Seeds;
 
-use App\Models\Pelanggan as ModelsPelanggan;
+use App\Models\PelangganModel as PelangganModel;
 use CodeIgniter\Database\Seeder;
 
-class Pelanggan extends Seeder
+class PelangganSeeder extends Seeder
 {
     public function run()
     {
-        $id = (new ModelsPelanggan()) ->insert([
-            'nama' => 'Administrator',
-            'gender' => 'L',
-            'email' => '12210430@.bsi.ac.id',
-            'sandi' => password_hash('123456', PASSWORD_BCRYPT),
-
+        
+        $id = (new PelangganModel()) ->insert([
+            'nama_depan'=>'budi',
+            'nama_belakang'=>"tomo",
+            'gender'=>'L',
+            'nohp'=>"09039423848",
+            'email'=>'buditomo@gmail.com',
+            'sandi'=> password_hash('12345',PASSWORD_BCRYPT),
+            'tgl_daftar'=>'2022-09-11',
+            'token_reset'=>'knjshduhw',
+            'foto'=>'budi.jpg'
         ]);
-        //
+        echo "id = $id";
     }
 }

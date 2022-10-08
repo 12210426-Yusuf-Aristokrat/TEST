@@ -1,14 +1,18 @@
 <?php
 
-namespace App\Database\Seeds;
+    namespace App\Database\Seeds;
 
-use CodeIgniter\Database\Seeder;
+    use App\Models\KabkoModel as KabkoModel;
+    use CodeIgniter\Database\Seeder;
 
-class Kabko extends Seeder
-{
-    public function run()
+    class KabkoSeeder extends Seeder
     {
-        
-        //
+        public function run()
+        {
+            $id = (new KabkoModel()) ->insert([
+            'kode'=> '1234',
+            'nama' => 'Pontianak',
+        ]);    
+            //
+        }
     }
-}

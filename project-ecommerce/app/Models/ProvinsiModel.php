@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Provinsi extends Model
+class ProvinsiModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'provinsi';

@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Kabko extends Model
+class KabkoModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'kabko';
+    protected $table            = 'kabko'; 
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

@@ -2,14 +2,14 @@
 
 namespace App\Database\Seeds;
 
-use App\Models\Provinsi as ModelsProvinsi;
+use App\Models\ProvinsiModel as ProvinsiModel;
 use CodeIgniter\Database\Seeder;
 
-class Provinsi extends Seeder
+class Provinsiseeder extends Seeder
 {
     public function run()
     {
-        $id = (new ModelsProvinsi()) ->insert([
+        $id = (new ProvinsiModel()) ->insert([
             'kode' => '76011',
             'nama' => 'Kalimantan Barat',
          

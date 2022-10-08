@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Kecamatan extends Model
+class KecamatanModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'kecamatan';
