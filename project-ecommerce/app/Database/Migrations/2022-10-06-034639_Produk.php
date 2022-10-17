@@ -13,10 +13,14 @@ class Produk extends Migration
             'mitra_id'  =>['type'=>'int', 'constraint'=>10, 'null'=>true, 'unsigned'=>true],
             'detail_produk'=>['type'=>'mediumtext'],
             'rating'=>['type'=>'double', 'null'=>true, 'unsigned'=>true],
-            'aktif'=>['type'=>'enum("Y", "T")']
-            
-
+            'aktif'=>['type'=>'enum("Y", "T")'],
+            'kategori_produk_id'=>['type'=>'int', 'constraint'=>10, 'null'=>true, 'unsigned'=>true],
+            'created_at'   =>['type'=>'datetime'],
+            'updated_at'   =>['type'=>'datetime'],
+            'deleted_at'   =>['type'=>'datetime']
         ]);
+    $this->forge->addprimarykey('id');
+    
     }
 
     public function down()
