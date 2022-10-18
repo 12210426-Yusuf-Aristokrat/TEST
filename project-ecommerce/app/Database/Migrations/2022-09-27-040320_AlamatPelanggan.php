@@ -15,13 +15,13 @@ class AlamatPelanggan extends Migration
             'judul'         =>['type'=>'varchar', 'constraint'=>80, 'null'=>true],
             'alamat'        =>['type'=>'varchar', 'constraint'=>255, 'null'=>true],
             'provinsi_id'   =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
-            'kabko_id'   =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
-            'kecamatan_id'   =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
-            'kelurahan_id'   =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
-            'kodepos'   =>['type'=>'varchar', 'constraint'=>10],
-            'created_at'   =>['type'=>'datetime'],
-            'updated_at'   =>['type'=>'datetime'],
-            'deleted_at'   =>['type'=>'datetime']
+            'kabko_id'      =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
+            'kecamatan_id'  =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
+            'kelurahan_id'  =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
+            'kodepos'       =>['type'=>'varchar', 'constraint'=>10],
+            'created_at'    =>['type'=>'datetime'],
+            'updated_at'    =>['type'=>'datetime'],
+            'deleted_at'    =>['type'=>'datetime']
 
         ]);
         $this->forge->addPrimaryKey('id');
