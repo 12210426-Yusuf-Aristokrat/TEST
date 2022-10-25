@@ -16,7 +16,6 @@ class PenggunaSeeder extends Seeder
             'sandi'=> password_hash('123456', PASSWORD_BCRYPT),
         ]);
         echo "hasil id = $id";
-       
     }
 }
     

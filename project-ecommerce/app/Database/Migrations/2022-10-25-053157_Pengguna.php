@@ -13,13 +13,13 @@ class Pengguna extends Migration
             'nama'=> [ 'type '=> 'varchar', 'constraint' =>80, 'null'=>false ],
             'gender'=> [ 'type'=>'enum("L", "P")', 'null'=>true ],
             'email'=> [ 'type'=>'varchar', 'constraint'=>128, 'null'=>true ],
-            'sandi'=> [ 'type'=>'varchar', 'constraint '=>60, 'null'=>true ],
+            'sandi'=> [ 'type'=>'varchar', 'constraint'=>60, 'null'=>true ],
             'created_at' => [ 'type'=>'datetime','null'=>true ],
             'updated_at'=> [ 'type' =>'datetime','null'=>true ],
-            'deleted_at'=> [ 'type => `datetime','null'=>true ],
+            'deleted_at'=> [ 'type => `datetime','null'=>true ]
         ]);
-       $this->forge->addPrimaryKey('id');
-       $this->forge->createTable('tb_pengguna');
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('tb_pengguna');
        
     }
     
