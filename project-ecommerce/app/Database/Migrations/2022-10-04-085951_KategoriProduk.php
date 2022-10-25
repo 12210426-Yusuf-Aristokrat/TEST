@@ -14,10 +14,13 @@ class KategoriProduk extends Migration
             'parent_id' =>['type'=>'int', 'constraint'=>10, 'unsigned'=>true],
             'aktif'     =>['type'=>'enum("Y","T")']
         ]);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('tb_kategori_produk');
     }
-
+    
     public function down()
     {
+        $this->forge->dropTable('tb_kategori_produk');
         //
     }
 }

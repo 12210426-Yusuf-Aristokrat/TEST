@@ -17,10 +17,13 @@ class Gambarproduk extends Migration
             'updated_at'    =>['type'=>'datetime'],
             'deleted_at'    =>['type'=>'datetime']
         ]);
+        $this->forge->addprimarykey('id');
+        $this->forge->createTable('tb_gambar_produk');
     }
-
+    
     public function down()
     {
+        $this->forge->dropTable('tb_gambar_produk');
         //
     }
 }

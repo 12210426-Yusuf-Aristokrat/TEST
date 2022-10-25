@@ -19,12 +19,15 @@ class Produk extends Migration
             'updated_at'   =>['type'=>'datetime'],
             'deleted_at'   =>['type'=>'datetime']
         ]);
-    $this->forge->addprimarykey('id');
-    
+        $this->forge->addprimarykey('id');
+        $this->forge->createTable('tb_produk');
     }
-
+    // deleted 
     public function down()
     {
-        //
+        $this->forge->dropTable('tb_produk');
+    //
     }
 }
+
+

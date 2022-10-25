@@ -26,10 +26,13 @@ class Mitra extends Migration
             'updated_at'   =>['type'=>'datetime'],
             'deleted_at'   =>['type'=>'datetime']
         ]);
+        $this->forge->addPrimaryKey('id');
+        $this->forge->createTable('tb_mitra');
     }
-
+    
     public function down()
     {
+        $this->forge->dropTable('tb_mitra');
         //
     }
 }
