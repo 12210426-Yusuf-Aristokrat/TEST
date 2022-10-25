@@ -12,7 +12,7 @@ class PenggunaSeeder extends Seeder
         $id = (new PenggunaModel())->insert([
             "nama" => 'Administrator',
             'gender'=> 'L',
-            'email'=>"testing",
+            'email'=>"testing@gmail.com",
             'sandi'=> password_hash('123456', PASSWORD_BCRYPT),
         ]);
         echo "hasil id = $id";
