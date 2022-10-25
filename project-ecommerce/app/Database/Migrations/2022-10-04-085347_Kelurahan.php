@@ -18,11 +18,11 @@ class Kelurahan extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);  
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('Kelurahan');
+        $this->forge->createTable('tb_kelurahan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Kelurahan');
+        $this->forge->dropTable('tb_kelurahan');
     }
 }

@@ -17,11 +17,11 @@ class Provinsi extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('Provinsi');
+        $this->forge->createTable('tb_provinsi');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Provinsi');
+        $this->forge->dropTable('tb_provinsi');
     }
 }

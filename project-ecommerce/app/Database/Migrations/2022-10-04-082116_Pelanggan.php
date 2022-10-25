@@ -24,11 +24,11 @@ class Pelanggan extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('Pelanggan');
+        $this->forge->createTable('tb_pelanggan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Pelanggan');
+        $this->forge->dropTable('tb_pelanggan');
     }
 }

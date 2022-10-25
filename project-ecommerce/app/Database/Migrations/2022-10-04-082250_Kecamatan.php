@@ -18,11 +18,11 @@ class Kecamatan extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);    
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('Kecamatan');
+        $this->forge->createTable('tb_kecamatan');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Kecamatan');
+        $this->forge->dropTable('tb_kecamatan');
     }
 }

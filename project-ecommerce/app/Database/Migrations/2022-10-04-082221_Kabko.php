@@ -18,11 +18,11 @@ class Kabko extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);  
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('Kabko');
+        $this->forge->createTable('tb_kabko');
     }
 
     public function down()
     {
-        $this->forge->dropTable('Kabko');
+        $this->forge->dropTable('tb_kabko');
     }
 }
