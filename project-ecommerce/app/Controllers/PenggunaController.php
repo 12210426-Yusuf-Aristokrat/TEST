@@ -84,7 +84,7 @@ class PenggunaController extends BaseController
 
     public function index()
     {
-        return view('Pengguna/table');
+        return view('pengguna/table');
     }
 
     public function all()
