@@ -21,17 +21,17 @@ class PenggunaController extends BaseController
         $pengguna = (new PenggunaModel())->where('email',$email)->first();
 
         if($pengguna == null) {
-            return $this->response->setJSON(['message->'=>'email tidak terdaftar'])->setStatusCode(403);
+            return $this->response->setJSON(['message'=>'email tidak terdaftar'])->setStatusCode(403);
         }
         
         //cek password
         $cekPassword = password_verify($password,$pengguna['sandi']);
         if($cekPassword == false){
-            return $this->response->setJSON(['message->'=>'email atau sandi tidak cocok'])->setStatusCode(403);
+            return $this->response->setJSON(['message'=>'email atau sandi tidak cocok'])->setStatusCode(403);
         }
 
         $this->Session->set('pengguna', $pengguna);
-        return $this->response->setJSON(['message->'=>"Selamat Datang {$pengguna['nama']}"])->setStatusCode(200);
+        return $this->response->setJSON(['message'=>"Selamat Datang {$pengguna['nama']}"])->setStatusCode(200);
     }
 
     public function viewLogin(){
