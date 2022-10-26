@@ -49,8 +49,7 @@ $routes->group('login', function(RouteCollection $routes){
 });
 
 // add more  route :v
-$routes->group('login', function(RouteCollection $routes){
-    $routes->get('lupa','PenggunaController::index');
+$routes->group('pengguna', function(RouteCollection $routes){
     $routes->post('/','PenggunaController::store');
     $routes->patch('/','PenggunaController::update');
     $routes->delete('/','PenggunaController::delete');
