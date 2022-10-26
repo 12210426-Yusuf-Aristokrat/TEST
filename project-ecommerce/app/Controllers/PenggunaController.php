@@ -3,7 +3,11 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use Agoenxz21\Datatables\Datatable;
+use App\Models\PenggunaModel;
 use CodeIgniter\Email\Email;
+use Config\Email as ConfigEmail;
+use CodeIgniter\Exceptions\PageNotFoundException;
 use CodeIgniter\HTTP\Message;
 
 class PenggunaController extends BaseController
@@ -63,5 +67,74 @@ class PenggunaController extends BaseController
         }else{
             return $this->response->setJSON(['Message'=>"maaf ada kesalahan pengiriman ke alamat email $email"])->setStatusCode(500);
         }
+    }
+
+    public function viewLupaPassword()
+    {
+        return view('lupaPassword');
+    }
+
+    public function logout()
+    {
+        $this->session->destroy();
+        return redirect()->to('login');
+    }
+
+    public function index()
+    {
+        return view('Pengguna/table');
+    }
+
+    public function all()
+    {
+        $pm = new PenggunaModel();
+        $pm-> select('id , nama , gender , email');
+
+        return(new Datatable($pm))
+            ->setFieldFilter(['nama','email','gender'])
+            ->draw();
+    }
+
+    public function show($id){
+        $r= (new PenggunaModel())->where('id',$id)->first();
+        if($r == null)throw PageNotFoundException::forPageNotFound();
+
+        return $this->response->setJSON($r);
+    }
+
+    public function store(){
+        $pm = new PenggunaModel();
+        $sandi = $this->request->getvar('sandi');
+
+        $id = $pm-> insert([
+            'nama' => $this->request->getVar('nama'),
+            'gender' => $this->request->getVar('gender'),
+            'email' => $this->request->getVar('email'),
+            'sandi'=>password_hash($sandi, PASSWORD_BCRYPT),
+        ]);
+        return $this->response->setJSON(['id'=>$id])
+            ->setStatusCode(intval($id) > 0 ? 200 : 406);
+    }
+
+    public function update(){
+        $pm = new PenggunaModel();
+        $id = (int)$this->request->getvar('id');
+
+        if($pm->find($id) == null)
+            throw PageNotFoundException::forPageNotFound();
+
+        $hasil = $pm-> update($id,[
+            'nama' => $this->request->getVar('nama'),
+            'gender' => $this->request->getVar('gender'),
+            'email' => $this->request->getVar('email'),
+        ]);
+            return $this->response->setJSON(['result'=>$hasil]);
+    }
+
+    public function delete(){
+        $pm = new PenggunaModel();
+        $id = $this->request->getvar('id');
+        $hasil = $pm->delete($id);
+        return $this->response->setJSON(['result'=>$hasil]);
     }
 }
