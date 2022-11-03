@@ -2,6 +2,8 @@
 
 namespace Config;
 
+use App\Filters\OtentikasiFilter;
+use App\Filters\SessionFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
 use CodeIgniter\Filters\DebugToolbar;
@@ -23,6 +25,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
+        'auth' => OtentikasiFilter::class,
+        'loginSession' => SessionFilter::class
+
     ];
 
     /**

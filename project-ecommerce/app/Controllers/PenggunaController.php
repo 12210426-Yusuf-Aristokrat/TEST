@@ -12,6 +12,11 @@ use CodeIgniter\HTTP\Message;
 
 class PenggunaController extends BaseController
 {
+
+    public function index(){
+        return view('pengguna/table');
+    }
+
     public function login()
     {
         // mengambil email dan password pengguna
@@ -82,16 +87,12 @@ class PenggunaController extends BaseController
         return redirect()->to('login');
     }
 
-    public function index()
-    {
-        return view('pengguna/table');
-    }
+  
 
     public function all()
     {
         $pm = new PenggunaModel();
-        $pm-> select('id , nama , gender , email');
-
+        $pm->select('id , nama ,email , gender');
         return(new Datatable($pm))
             ->setFieldFilter(['nama','email','gender'])
             ->draw();
