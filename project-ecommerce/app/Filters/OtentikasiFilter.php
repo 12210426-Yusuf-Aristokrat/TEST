@@ -26,7 +26,7 @@ class OtentikasiFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         $p = session('pengguna');
-        if($p != NULL){
+        if($p == NULL){
             return redirect()->to(site_url('login'));
         }
     }

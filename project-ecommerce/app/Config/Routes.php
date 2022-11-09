@@ -37,7 +37,7 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/','PenggunaController::index',['filters'=>'auth']);
 // $routes->get('/', 'Pages::index');
 
 
@@ -48,11 +48,12 @@ $routes->group('login',['filters'=>'auth'] ,function(RouteCollection $routes){
     $routes->patch('/','PenggunaController::lupaPassword');
 });
 
-$routes->delete('login','PenggunaController::logout');
+$routes->delete('logout','PenggunaController::logout');
 
 // add more  route :v
 $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
     $routes->get('/', 'PenggunaController::index');
+    $routes->get('table', 'PenggunaController::tables');
     $routes->post('/','PenggunaController::store');
     $routes->patch('/','PenggunaController::update');
     $routes->delete('/','PenggunaController::delete');

@@ -12,8 +12,11 @@ use CodeIgniter\HTTP\Message;
 
 class PenggunaController extends BaseController
 {
-
-    public function index(){
+    public function index()
+    {
+        return view('login');
+    }
+    public function tables(){
         return view('pengguna/table');
     }
 
@@ -38,9 +41,9 @@ class PenggunaController extends BaseController
         }
 
         $this->session->set('pengguna', $pengguna);
-        return $this->response->setJSON(['message'=>"Selamat Datang {$pengguna['nama']}"])->setStatusCode(200);
+        return redirect()->to('pengguna/table');
+        // return $this->response->setJSON(['message'=>"Selamat Datang {$pengguna['nama']}"])->setStatusCode(200);
     }
-
     public function viewLogin(){
         return view('login');
     }

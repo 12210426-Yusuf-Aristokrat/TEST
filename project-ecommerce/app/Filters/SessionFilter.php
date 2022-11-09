@@ -27,7 +27,7 @@ class SessionFilter implements FilterInterface
     {
         $p = session('pengguna');
         if($p == NULL){
-            return redirect()->to(site_url('pengguna'));
+            return redirect()->to(site_url('url'));
         }
     }
 

@@ -19,7 +19,7 @@
 <body>
  <div class="container">
   <!-- Form Login -->
-  <form method="post" action="<?=base_url('/login')?>">
+ <form method="post" action="<?=base_url('/login')?>">
   <div class="row">
    <div class="form-group col-md-4">
     <div class="mb-3">
