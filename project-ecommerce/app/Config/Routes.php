@@ -39,6 +39,12 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/','PenggunaController::index',['filters'=>'auth']);
 // $routes->get('/', 'Pages::index');
+$routes->group('login',['filters'=>'auth'] ,function(RouteCollection $routes){
+    $routes->get('lupa','PenggunaController::viewLupaPassword');
+    $routes->get('/','PenggunaController::viewLogin');
+    $routes->post('/','PenggunaController::login');
+    $routes->patch('/','PenggunaController::lupaPassword');
+});
 
 $routes->group('pages',['filters'=>'loginSession'],function(RouteCollection $routes){
     $routes->get('pelanggan','Pages::pelanggan');
@@ -61,15 +67,6 @@ $routes->group('pages',['filters'=>'loginSession'],function(RouteCollection $rou
     $routes->get('pembayaran','Pages::pembayaran');
     $routes->get('gambarproduk','Pages::gambarproduk');
 });
-
-$routes->group('login',['filters'=>'auth'] ,function(RouteCollection $routes){
-    $routes->get('lupa','PenggunaController::viewLupaPassword');
-    $routes->get('/','PenggunaController::viewLogin');
-    $routes->post('/','PenggunaController::login');
-    $routes->patch('/','PenggunaController::lupaPassword');
-});
-
-$routes->delete('logout','PenggunaController::logout');
 
 // add more  route :v
 $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
@@ -100,6 +97,9 @@ $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection 
     $routes->get('pembayaran','PenggunaController::pembayaran');
     $routes->get('gambarproduk','PenggunaController::gambarproduk');
 });
+
+$routes->delete('logout','PenggunaController::logout');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
