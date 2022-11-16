@@ -18,6 +18,7 @@ class Kelurahan extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);  
         $this->forge->addPrimaryKey('id');
+        $this->forge->addforeignKey('kecamatan_id', 'tb_kecamatan', 'id', 'cascade');
         $this->forge->createTable('tb_kelurahan');
     }
 

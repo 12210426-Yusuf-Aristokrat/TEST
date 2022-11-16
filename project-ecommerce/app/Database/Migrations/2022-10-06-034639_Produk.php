@@ -20,6 +20,8 @@ class Produk extends Migration
             'deleted_at'   =>['type'=>'datetime']
         ]);
         $this->forge->addprimarykey('id');
+        $this->forge->addforeignKey('mitra_id', 'tb_mitra', 'id', 'cascade');
+        $this->forge->addforeignKey('kategori_produk_id', 'tb_kategori_produk', 'id', 'cascade');
         $this->forge->createTable('tb_produk');
     }
     // deleted 

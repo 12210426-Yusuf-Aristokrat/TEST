@@ -27,6 +27,10 @@ class Mitra extends Migration
             'deleted_at'   =>['type'=>'datetime']
         ]);
         $this->forge->addPrimaryKey('id');
+        $this->forge->addforeignKey('provinsi_id', 'tb_provinsi', 'id', 'cascade');
+        $this->forge->addforeignKey('kabko_id', 'tb_kabko', 'id', 'cascade');
+        $this->forge->addforeignKey('kecamatan_id', 'tb_kecamatan', 'id', 'cascade');
+        $this->forge->addforeignKey('kelurahan_id', 'tb_kelurahan', 'id', 'cascade');
         $this->forge->createTable('tb_mitra');
     }
     

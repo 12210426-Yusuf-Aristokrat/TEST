@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class KecamatanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'kecamatan';
+    protected $table            = 'tb_kecamatan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class PelangganModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'pelanggan';
+    protected $table            = 'tb_pelanggan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ProvinsiModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'provinsi';
+    protected $table            = 'tb_provinsi';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

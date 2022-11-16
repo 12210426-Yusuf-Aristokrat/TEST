@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class KelurahanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'kelurahan';
+    protected $table            = 'tb_kelurahan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -17,7 +17,7 @@ class KelurahanModel extends Model
     protected $allowedFields    = [];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';

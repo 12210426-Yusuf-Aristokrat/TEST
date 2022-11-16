@@ -10,20 +10,23 @@ class VarianProduk extends Migration
     {
         $this->forge->addField([
             'id'=> [ 'type'=>'int', 'constraint'=>10, 'unsigned' =>true, 'auto_increment'=>true ],
-            'nama' => ['type'=>'varchar', 'constraint'=>80, 'null'=>false],
-            'gender'=> [ 'type'=>'enum("L", "P")', 'null'=>true ],
-            'email'=> [ 'type'=>'varchar', 'constraint'=>128, 'null'=>true ],
-            'sandi'=> [ 'type'=>'varchar', 'constraint'=>60, 'null'=>true ],
+            'produk_id' => ['type'=>'int', 'constraint'=>10,'unsigned' =>true, 'null'=>true],
+            'varian'=> [ 'type'=>'varchar', 'constraint'=>255, 'null'=>true ],
+            'stok'=> [ 'type'=>'int', 'default'=> 0 ,'constraint'=>10, 'null'=>true ],
+            'harga_jual'=> [ 'type'=>'double','null'=>true ],
+            'harga_dasar'=> [ 'type'=>'double','null'=>true ],
             'created_at' => [ 'type'=>'datetime','null'=>true ],
             'updated_at'=> [ 'type' =>'datetime','null'=>true ],
             'deleted_at'=> [ 'type' => 'datetime','null'=>true ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('tb_pengguna');
+        $this->forge->addforeignKey('produk_id', 'tb_produk', 'id', 'cascade');
+        $this->forge->createTable('tb_varian_produk');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('tb_varian_produk');
+        
     }
 }

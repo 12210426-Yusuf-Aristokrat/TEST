@@ -25,12 +25,16 @@ class AlamatPelanggan extends Migration
 
         ]);
         $this->forge->addPrimaryKey('id');
+        $this->forge->addforeignKey('pelanggan_id', 'tb_pelanggan', 'id', 'cascade');
+        $this->forge->addforeignKey('provinsi_id', 'tb_provinsi', 'id', 'cascade');
+        $this->forge->addforeignKey('kabko_id', 'tb_kabko', 'id', 'cascade');
+        $this->forge->addforeignKey('kecamatan_id', 'tb_kecamatan', 'id', 'cascade');
+        $this->forge->addforeignKey('kelurahan_id', 'tb_kelurahan', 'id', 'cascade');
         $this->forge->createTable('tb_alamat_pelanggan');
     }
     
     public function down()
     {
         $this->forge->dropTable('tb_alamat_pelanggan');
-        
     }
 }

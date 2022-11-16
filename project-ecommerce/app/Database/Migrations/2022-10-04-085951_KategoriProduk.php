@@ -15,6 +15,8 @@ class KategoriProduk extends Migration
             'aktif'     =>['type'=>'enum("Y","T")']
         ]);
         $this->forge->addPrimaryKey('id');
+        $this->forge->addforeignKey('parent_id', 'tb_kategori_produk', 'id', 'cascade');
+
         $this->forge->createTable('tb_kategori_produk');
     }
     

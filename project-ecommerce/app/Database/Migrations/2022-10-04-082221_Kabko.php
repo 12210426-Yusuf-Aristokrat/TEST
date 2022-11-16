@@ -18,6 +18,7 @@ class Kabko extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);  
         $this->forge->addPrimaryKey('id');
+        $this->forge->addforeignKey('provinsi_id', 'tb_provinsi', 'id', 'cascade');
         $this->forge->createTable('tb_kabko');
     }
 

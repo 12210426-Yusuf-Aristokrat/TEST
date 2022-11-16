@@ -40,6 +40,10 @@ $routes->set404Override();
 $routes->get('/','PenggunaController::index',['filters'=>'auth']);
 // $routes->get('/', 'Pages::index');
 
+$routes->group('pages',['filters'=>'loginSession'],function(RouteCollection $routes){
+    $routes->get('bagian','Pages::bagian');
+    $routes->get('alamatpelanggan','Pages::alamatpelanggan');
+});
 
 $routes->group('login',['filters'=>'auth'] ,function(RouteCollection $routes){
     $routes->get('lupa','PenggunaController::viewLupaPassword');

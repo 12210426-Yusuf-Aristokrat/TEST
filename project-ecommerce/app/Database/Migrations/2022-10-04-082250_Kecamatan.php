@@ -18,6 +18,7 @@ class Kecamatan extends Migration
             'deleted_at'=>['type'=>'datetime']
         ]);    
         $this->forge->addPrimaryKey('id');
+        $this->forge->addforeignKey('kabko_id', 'tb_kabko', 'id', 'cascade');
         $this->forge->createTable('tb_kecamatan');
     }
 

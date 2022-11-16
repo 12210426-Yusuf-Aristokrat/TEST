@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class KabkoModel extends Model
+class PengirimanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_kabko'; 
+    protected $table            = 'tb_pengiriman';
     protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = false;
+    protected $protectFields    = true;
     protected $allowedFields    = [];
 
     // Dates

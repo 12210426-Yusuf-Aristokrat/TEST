@@ -4,16 +4,16 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class KabkoModel extends Model
+class MitraModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tb_kabko'; 
+    protected $table            = 'tb_mitra';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = false;
+    protected $protectFields    = true;
     protected $allowedFields    = [];
 
     // Dates

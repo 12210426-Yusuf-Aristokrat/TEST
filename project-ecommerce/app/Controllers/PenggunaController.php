@@ -16,9 +16,7 @@ class PenggunaController extends BaseController
     {
         return view('login');
     }
-    public function tables(){
-        return view('pengguna/table');
-    }
+    
 
     public function login()
     {
@@ -41,7 +39,7 @@ class PenggunaController extends BaseController
         }
 
         $this->session->set('pengguna', $pengguna);
-        return redirect()->to('pengguna/table');
+        return redirect()->to('pages/bagian');
         // return $this->response->setJSON(['message'=>"Selamat Datang {$pengguna['nama']}"])->setStatusCode(200);
     }
     public function viewLogin(){
