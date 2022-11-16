@@ -1,16 +1,13 @@
 
   
   <div class="container">
-    <form method="post" action="<?=base_url('logout')?>">
-      <input name="_method" value="delete" type="hidden" />
-      <button class='float-end btn btn-danger' id="logout" name="logout"> Log Out </button>
-    </form>
     <button class=" btn btn-sm btn-primary" id="btn-tambah">Tambah Data</button>
       <table id="table-pengguna" class="datatable table table-bordered">
         <thead>
           <tr>
             <th>No</th>
-            <th>Nama</th>
+            <th>Nama Depan</th>
+            <th>Nama belakang</th>
             <th>Email</th>
             <th>Gender</th>
             <th>Aksi</th>
@@ -139,7 +136,7 @@
     processing: true,
     serverSide: true,
     ajax:{
-      url: "<?=base_url('pengguna/all')?>",method: 'GET'
+      url: "<?=base_url('pengguna/pelanggan')?>",method: 'GET'
       },
       columns:
       [
@@ -148,7 +145,8 @@
           return meta.settings._iDisplayStart + meta.row + 1;
           } 
         },
-        {data: 'nama' },
+        {data: 'nama_depan' },
+        {data: 'nama_belakang' },
         {data: 'email' },
         {data: 'gender',render:(data,type,row,meta)=>{
           if(data === "L"){

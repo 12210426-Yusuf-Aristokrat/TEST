@@ -1,10 +1,6 @@
 
   
   <div class="container">
-    <form method="post" action="<?=base_url('logout')?>">
-      <input name="_method" value="delete" type="hidden" />
-      <button class='float-end btn btn-danger' id="logout" name="logout"> Log Out </button>
-    </form>
     <button class=" btn btn-sm btn-primary" id="btn-tambah">Tambah Data</button>
       <table id="table-pengguna" class="datatable table table-bordered">
         <thead>
