@@ -23,12 +23,16 @@
           <button class="btn-close" data-bs-dismiss="modal" ></button>
         </div>
         <div class="modal-body">
-          <form method="post" action="<?=base_url('pengguna')?>" id="formPengguna">
+          <form method="post" action="<?=base_url('pelanggan')?>" id="formPengguna">
             <input type="hidden" name="id" />
             <input type="hidden" name="_method" />
             <div class="mb-3">
-              <label for="nama" class="form-label">Nama Lengkap</label>
-              <input type="text" name="nama" class="form-control">
+              <label for="nama_depan" class="form-label">Nama depan</label>
+              <input type="text" name="nama_depan" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="nama_belakang" class="form-label">Nama belakang</label>
+              <input type="text" name="nama_belakang" class="form-control">
             </div>
             <div class="mb-3">
               <label for="gender" class="form-label">gender</label>
@@ -80,7 +84,7 @@
 
     // menampilkan isi modal
     $("button#btn-tambah").on("click",function(){
-      $("#judul-form").html("menambah data pengguna");
+      $("#judul-form").html("menambah data");
       $("#modalForm").modal("show");
       $("form#modalPengguna").trigger("reset");
       $("#formPengguna input[name=_method]").val("");
@@ -102,14 +106,15 @@
 
     //sunting data table
     $("table#table-pengguna").on("click",".btn-edit",function(){
-      $("h5#judul-form").html("Edit data pengguna");
+      $("h5#judul-form").html("Edit data");
       let id = $(this).data("id");
       let baseurl ="<?=base_url()?>";
       
 
       $.get(`${baseurl}/pengguna/${id}`).done((e)=>{
         $("input[name=id]").val(e.id);
-        $("input[name=nama]").val(e.nama);
+        $("input[name=nama_depan]").val(e.nama_depan);
+        $("input[name=nama_belakang]").val(e.nama_belakang);
         $("select[name=gender]").val(e.gender);
         $("input[name=email]").val(e.email);
         $("#modalForm").modal("show");

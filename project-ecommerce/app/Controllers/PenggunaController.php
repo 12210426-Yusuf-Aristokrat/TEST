@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
-use App\Models\PelangganModel;
 use App\Models\PenggunaModel;
 use CodeIgniter\Email\Email;
 use Config\Email as ConfigEmail;
@@ -97,15 +96,6 @@ class PenggunaController extends BaseController
         $pm->select('id , nama ,email , gender');
         return(new Datatable($pm))
             ->setFieldFilter(['nama','email','gender'])
-            ->draw();
-    }
-
-    public function pelanggan()
-    {
-        $pm = new PelangganModel();
-        $pm->select('id , nama_depan,nama_belakang,email , gender');
-        return(new Datatable($pm))
-            ->setFieldFilter(['nama','email','nama_depan','nama_belakang','gender'])
             ->draw();
     }
 

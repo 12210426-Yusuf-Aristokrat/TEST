@@ -79,7 +79,7 @@
 
     // menampilkan isi modal
     $("button#btn-tambah").on("click",function(){
-      $("#judul-form").html("menambah data pengguna");
+      $("#judul-form").html("menambah data");
       $("#modalForm").modal("show");
       $("form#modalPengguna").trigger("reset");
       $("#formPengguna input[name=_method]").val("");
@@ -101,7 +101,7 @@
 
     //sunting data table
     $("table#table-pengguna").on("click",".btn-edit",function(){
-      $("h5#judul-form").html("Edit data pengguna");
+      $("h5#judul-form").html("Edit data");
       let id = $(this).data("id");
       let baseurl ="<?=base_url()?>";
       
