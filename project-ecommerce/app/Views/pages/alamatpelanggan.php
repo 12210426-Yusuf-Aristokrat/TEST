@@ -6,7 +6,7 @@
         <thead>
           <tr>
             <th>No</th>
-            <th>Nama</th>
+            <th>Alamat</th>
             <th>Email</th>
             <th>Gender</th>
             <th>Aksi</th>

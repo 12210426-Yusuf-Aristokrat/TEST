@@ -9,16 +9,28 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 class PelangganController extends BaseController
 {
-    // public function index()
-    // {
-    //     //
+    public function view($page = "pelanggan")
+    {
+        if (! is_file(APPPATH .'Views/pages/' .$page .'.php')) {
+            // Whoops, we don't have a page for that!
+            throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
+        }
+
+        $data['title'] = ucfirst($page); // Capitalize the first letter
+
+        return view('template/header', $data)
+                .view('pages/'.$page)
+                .view('template/foooter');
+    }
+    // public function tables(){
+    //     return view('pelanggan/table');
     // }
-    public function pengguna()
+    public function all()
     {
         $pm = new PelangganModel();
-        $pm->select('id , nama_depan ,email , gender');
+        $pm->select('id , nama_depan,nama_belakang ,email , gender');
         return(new Datatable($pm))
-            ->setFieldFilter(['nama_depan','email','gender'])
+            ->setFieldFilter(['nama_depan','nama_belakang','email','gender'])
             ->draw();
     }
 
@@ -52,7 +64,8 @@ class PelangganController extends BaseController
             throw PageNotFoundException::forPageNotFound();
 
         $hasil = $pm-> update($id,[
-            'nama' => $this->request->getVar('nama'),
+            'nama_depan' => $this->request->getVar('nama_depan'),
+            'nama_belakang' => $this->request->getVar('nama_belakang'),
             'gender' => $this->request->getVar('gender'),
             'email' => $this->request->getVar('email'),
         ]);

@@ -39,7 +39,7 @@ class PenggunaController extends BaseController
         }
 
         $this->session->set('pengguna', $pengguna);
-        return redirect()->to('pages/pelanggan');
+        return redirect()->to('/pelanggan');
         // return $this->response->setJSON(['message'=>"Selamat Datang {$pengguna['nama']}"])->setStatusCode(200);
     }
     public function viewLogin(){

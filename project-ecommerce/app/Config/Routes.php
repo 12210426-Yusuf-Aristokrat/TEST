@@ -39,28 +39,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/','PenggunaController::index',['filters'=>'auth']);
 // $routes->get('/', 'Pages::index');
-
-$routes->group('pages',['filters'=>'loginSession'],function(RouteCollection $routes){
-    $routes->get('pelanggan','Pages::pelanggan');
-    $routes->get('provinsi','Pages::provinsi');
-    $routes->get('kabko','Pages::kabko');
-    $routes->get('kecamatan','Pages::kecamatan');
-    $routes->get('kelurahan','Pages::kelurahan');
-    $routes->get('alamatpelanggan','Pages::alamatpelanggan');
-    $routes->get('kategoriproduk','Pages::kategoriproduk');
-    $routes->get('mitra','Pages::mitra');
-    $routes->get('produk','Pages::produk');
-    $routes->get('varianproduk','Pages::varianproduk');
-    $routes->get('sysadmin','Pages::sysadmin');
-    $routes->get('metodebayar','Pages::metodebayar');
-    $routes->get('keranjang','Pages::keranjang');
-    $routes->get('pemesanan','Pages::pemesanan');
-    $routes->get('detailpemesanan','Pages::detailpemesanan');
-    $routes->get('kurir','Pages::kurir');
-    $routes->get('pengiriman','Pages::pengiriman');
-    $routes->get('pembayaran','Pages::pembayaran');
-    $routes->get('gambarproduk','Pages::gambarproduk');
-});
+$routes->delete('logout','PenggunaController::logout');
 
 $routes->group('login',['filters'=>'auth'] ,function(RouteCollection $routes){
     $routes->get('lupa','PenggunaController::viewLupaPassword');
@@ -69,190 +48,213 @@ $routes->group('login',['filters'=>'auth'] ,function(RouteCollection $routes){
     $routes->patch('/','PenggunaController::lupaPassword');
 });
 
-$routes->delete('logout','PenggunaController::logout');
+// $routes->group('pages',['filters'=>'loginSession'],function(RouteCollection $routes){
+//     $routes->get('pelanggan','Pages::pelanggan');
+//     $routes->get('provinsi','Pages::provinsi');
+//     $routes->get('kabko','Pages::kabko');
+//     $routes->get('kecamatan','Pages::kecamatan');
+//     $routes->get('kelurahan','Pages::kelurahan');
+//     $routes->get('alamatpelanggan','Pages::alamatpelanggan');
+//     $routes->get('kategoriproduk','Pages::kategoriproduk');
+//     $routes->get('mitra','Pages::mitra');
+//     $routes->get('produk','Pages::produk');
+//     $routes->get('varianproduk','Pages::varianproduk');
+//     $routes->get('sysadmin','Pages::sysadmin');
+//     $routes->get('metodebayar','Pages::metodebayar');
+//     $routes->get('keranjang','Pages::keranjang');
+//     $routes->get('pemesanan','Pages::pemesanan');
+//     $routes->get('detailpemesanan','Pages::detailpemesanan');
+//     $routes->get('kurir','Pages::kurir');
+//     $routes->get('pengiriman','Pages::pengiriman');
+//     $routes->get('pembayaran','Pages::pembayaran');
+//     $routes->get('gambarproduk','Pages::gambarproduk');
+// });
+
+
+
 
 // add more  route :v
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
+$routes->group('pelanggan',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'PelangganController::view');
+    $routes->get('table', 'PelangganController::tables');
+    $routes->post('/','PelangganController::store');
+    $routes->patch('/','PelangganController::update');
+    $routes->delete('/','PelangganController::delete');
+    $routes->get('(:num)','PelangganController::show/$1');
+    $routes->get('all','PelangganController::all');
 });
 
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
+$routes->group('alamat',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'AlamatPelangganController::view');
+    $routes->get('table', 'AlamatPelangganController::tables');
+    $routes->post('/','AlamatPelangganController::store');
+    $routes->patch('/','AlamatPelangganController::update');
+    $routes->delete('/','AlamatPelangganController::delete');
+    $routes->get('(:num)','AlamatPelangganController::show/$1');
+    $routes->get('all','AlamatPelangganController::all');
 });
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
-$routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PenggunaController::index');
-    $routes->get('table', 'PenggunaController::tables');
-    $routes->post('/','PenggunaController::store');
-    $routes->patch('/','PenggunaController::update');
-    $routes->delete('/','PenggunaController::delete');
-    $routes->get('(:num)','PenggunaController::show/$1');
-    $routes->get('all','PenggunaController::all');
-});
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
+// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
+//     $routes->get('/', 'PenggunaController::index');
+//     $routes->get('table', 'PenggunaController::tables');
+//     $routes->post('/','PenggunaController::store');
+//     $routes->patch('/','PenggunaController::update');
+//     $routes->delete('/','PenggunaController::delete');
+//     $routes->get('(:num)','PenggunaController::show/$1');
+//     $routes->get('all','PenggunaController::all');
+// });
 /*
  * --------------------------------------------------------------------
  * Additional Routing

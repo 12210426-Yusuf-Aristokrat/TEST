@@ -6,7 +6,7 @@
         <thead>
           <tr>
             <th>No</th>
-            <th>Nama Depan</th>
+            <th>Nama Depan</th> 
             <th>Nama belakang</th>
             <th>Email</th>
             <th>Gender</th>
@@ -111,7 +111,7 @@
       let baseurl ="<?=base_url()?>";
       
 
-      $.get(`${baseurl}/pengguna/${id}`).done((e)=>{
+      $.get(`${baseurl}/pelanggan/${id}`).done((e)=>{
         $("input[name=id]").val(e.id);
         $("input[name=nama_depan]").val(e.nama_depan);
         $("input[name=nama_belakang]").val(e.nama_belakang);
@@ -130,7 +130,7 @@
         let _id = $(this).data("id");
         let baseurl ="<?=base_url()?>";
 
-        $.post(`${baseurl}/pengguna`,{id:_id, _method:"delete"}).done(function(e){
+        $.post(`${baseurl}/pelanggan`,{id:_id, _method:"delete"}).done(function(e){
           $("table#table-pengguna").DataTable().ajax.reload();
         });
       }
@@ -141,7 +141,7 @@
     processing: true,
     serverSide: true,
     ajax:{
-      url: "<?=base_url('pengguna/pelanggan')?>",method: 'GET'
+      url: "<?=base_url('pelanggan/all')?>",method: 'GET'
       },
       columns:
       [
@@ -164,8 +164,8 @@
         },
         {data: 'id',render:(data,type,row,meta)=>
           {
-          var btnEdit = `<button class='btn-edit' data-id='${data}'> Edit </button>`;
-          var btnHapus = `<button class='btn-hapus' data-id='${data}'> Hapus </button>`;
+          var btnEdit = `<button class='btn btn-edit btn-sm btn-warning' data-id='${data}'> Edit </button>`;
+          var btnHapus = `<button class='btn btn-hapus btn-sm btn-danger' data-id='${data}'> Hapus </button>`;
           return btnEdit + btnHapus;
           } 
         }
