@@ -38,7 +38,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
           <div class="sidebar-brand-icon rotate-n-15">
-              <i class=""><img src="<?=base_url('assets')?>/BootstrapAdmin/img/wp_logo.svg" alt="wplogo"></i>
+              <!-- <i class=""><img src="<?=base_url('assets')?>/BootstrapAdmin/img/wp_logo.svg" alt="wplogo"></i> -->
           </div>
           <div class="sidebar-brand-text mx-3">WP ECO</div>
       </a>

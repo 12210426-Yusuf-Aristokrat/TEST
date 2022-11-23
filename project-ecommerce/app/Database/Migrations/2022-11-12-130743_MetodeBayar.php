@@ -17,12 +17,12 @@ class MetodeBayar extends Migration
             'deleted_at'   =>['type'=>'datetime']
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addforeignKey('id', 'tb_pemesanan', 'id', 'cascade');
-
+        $this->forge->createTable('tb_metode_bayar');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('tb_metode_bayar');
+        
     }
 }

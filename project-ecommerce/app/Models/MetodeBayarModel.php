@@ -7,13 +7,13 @@ use CodeIgniter\Model;
 class MetodeBayarModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'metodebayars';
+    protected $table            = 'tb_metode_bayar';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
+    protected $protectFields    = false;
     protected $allowedFields    = [];
 
     // Dates

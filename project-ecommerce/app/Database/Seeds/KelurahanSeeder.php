@@ -10,9 +10,11 @@ class Kelurahanseeder extends Seeder
     public function run()
     {
         $id = (new KelurahanModel()) ->insert([
-            'kode'=> '78234',
-            'nama'=> 'Tambelan Sampit',
+            'kode'=> '6171010006',
+            'nama'=> 'Kota Baru',
+            'kecamatan_id'=> '2'
         ]);
+        echo "id = $id";
         //
     }
 }

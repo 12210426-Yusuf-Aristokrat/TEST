@@ -10,9 +10,10 @@
         public function run()
         {
             $id = (new KabkoModel()) ->insert([
-            'kode'=> '1234',
-            'nama' => 'Pontianak',
-        ]);    
-            //
+                'kode'=> '6171',
+                'nama' => 'Kota Pontianak',
+                'provinsi_id'=> '1'
+            ]);    
+            echo "id = $id";
         }
     }

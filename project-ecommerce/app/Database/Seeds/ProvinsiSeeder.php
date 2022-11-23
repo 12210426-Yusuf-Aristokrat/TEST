@@ -10,10 +10,21 @@ class Provinsiseeder extends Seeder
     public function run()
     {
         $id = (new ProvinsiModel()) ->insert([
-            'kode' => '76011',
+            'kode' => '61',
             'nama' => 'Kalimantan Barat',
          
         ]);
+        // $id = (new ProvinsiModel()) ->insert([
+        //     'kode' => '62',
+        //     'nama' => 'Kalimantan Tengah',
+         
+        // ]);
+        // $id = (new ProvinsiModel()) ->insert([
+        //     'kode' => '63',
+        //     'nama' => 'Kalimantan Selatan',
+         
+        // ]);
+        echo "id = $id";
             //
     }
 }
