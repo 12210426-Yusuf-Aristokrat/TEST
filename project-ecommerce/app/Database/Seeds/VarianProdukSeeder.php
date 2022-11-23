@@ -13,8 +13,8 @@ class VarianProdukSeeder extends Seeder
             'produk_id'     => '1',
             'varian'        =>  'asoes',
             'stok'          =>  '20',
-            'harga_jual'    =>  'RP.15.000.000',
-            'harga_dasar'   =>  'RP.9.500.000'
+            'harga_jual'    =>  '15000000',
+            'harga_dasar'   =>  '9500000'
         ]);
         echo "id = $id";
     }
