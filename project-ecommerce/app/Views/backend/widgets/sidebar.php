@@ -6,7 +6,7 @@
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
-    <div class="sidebar-brand-text mx-3">Arsipt<sup>Digital</sup></div>
+    <div class="sidebar-brand-text mx-3">WP<sup>ECO</sup></div>
 </a>
 
 <!-- Divider -->
@@ -37,10 +37,12 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Referensi</h6>
-            <a class="collapse-item" href="<?=site_url('pelanggan')?>">pelanggan</a>
-            <a class="collapse-item" href="<?=site_url('provinsi')?>">provinsi</a>
-            <a class="collapse-item" href="<?=site_url('provinsi')?>">provinsi</a>
-            <a class="collapse-item" href="<?=site_url('kecamatan')?>">kecamatan</a>
+            <a class="collapse-item" href="<?=site_url('pelanggan')?>">Pelanggan</a>
+            <a class="collapse-item" href="<?=site_url('provinsi')?>">Provinsi</a>
+            <a class="collapse-item" href="<?=site_url('kabko')?>">Kabupaten / Kota</a>
+            <a class="collapse-item" href="<?=site_url('kecamatan')?>">Kecamatan</a>
+            <a class="collapse-item" href="<?=site_url('kelurahan')?>">Kelurahan</a>
+            <a class="collapse-item" href="<?=site_url('alamatpelanggan')?>">Alamat Pelanggan</a>
         </div>
     </div>
 </li>

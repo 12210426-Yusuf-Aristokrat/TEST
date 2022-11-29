@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>WP ECO 2 | Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?=base_url('assets')?>/BootstrapAdmin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

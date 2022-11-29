@@ -3,8 +3,8 @@
   <?=$this->section('content')?>
 
     <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Data Kabupaten atau Kota</h1>
-                    <p class="mb-4">Data Kabupaten atau Kota untuk mengelola data pengguna yang ada di sistem.</p>
+<h1 class="h3 mb-2 text-gray-800">Data Alamat pelanggan</h1>
+                    <p class="mb-4">Data Alamat pelanggan untuk mengelola data pengguna yang ada di sistem.</p>
 
 
   <div class="container mt-5">
@@ -24,8 +24,9 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>kode</th> 
-                <th>Nama Kabupaten / Kota</th>
+                <th>Nama</th> 
+                <th>Alamat</th>
+                <th>Kode Pos</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -42,16 +43,36 @@
           <button class="btn-close" data-bs-dismiss="modal" ></button>
         </div>
         <div class="modal-body">
-          <form method="post" action="<?=base_url('Kabko')?>" id="formPengguna">
+          <form method="post" action="<?=base_url('alamatalamatpelanggan')?>" id="formPengguna">
             <input type="hidden" name="id" />
             <input type="hidden" name="_method" />
             <div class="mb-3">
-              <label for="nama_depan" class="form-label">Kode</label>
+              <label for="nama_depan" class="form-label">Nama depan</label>
               <input type="text" name="nama_depan" class="form-control">
             </div>
             <div class="mb-3">
-              <label for="nama_belakang" class="form-label">Nama Kabupaten / Kota</label>
+              <label for="nama_belakang" class="form-label">Nama belakang</label>
               <input type="text" name="nama_belakang" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="gender" class="form-label">gender</label>
+              <select type="text" name="gender" class="form-control">
+                <option value="L">Laki-Laki</option>
+                <option value="p">Perempuan</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Alamat Email</label>
+              <input type="email" name="email" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="sandi" class="form-label">Sandi</label>
+              <input type="password" name="sandi" id="sandi" class="form-control">
+            </div>
+            <div class="mb-3">
+              <label for="konfirm-sandi" class="form-label">Konfirmasi sandi</label>
+              <input type="password" name="konfirm-sandi" id="konfirm-sandi" class="form-control">
+            </div>
           </form>
         </div>
         <div class="modal-footer">
@@ -100,8 +121,16 @@
 
     // kirim data 
     $("button#btn-kirim").on("click",function(){
+      // periksa apakah sandi dan konfirmasi sandi sama ?
+      var pass1= $("#sandi").val();
+      var pass2= $("#konfirm-sandi").val();
+      if(pass1 != pass2){
+        // jika tidak sama maka :
+        alert("password yang Anda Masukan Tidak Cocok");
+      }else{
         // jika sama maka :
         $("form#formPengguna").submit();
+      }
     });
 
     //sunting data table
@@ -111,10 +140,11 @@
       let baseurl ="<?=base_url()?>";
       
 
-      $.get(`${baseurl}/kabko/${id}`).done((e)=>{
+      $.get(`${baseurl}/alamatpelanggan/${id}`).done((e)=>{
         $("input[name=id]").val(e.id);
-        $("input[name=kode]").val(e.kode);
-        $("input[name=nama]").val(e.nama);
+        $("input[name=judul]").val(e.judul);
+        $("input[name=alamat]").val(e.alamat);
+        $("input[name=kodepos]").val(e.kodepos);
         $("#modalForm").modal("show");
         $("#formPengguna input[name=_method]").val("patch");
       });
@@ -128,7 +158,7 @@
         let _id = $(this).data("id");
         let baseurl ="<?=base_url()?>";
 
-        $.post(`${baseurl}/Kabko`,{id:_id, _method:"delete"}).done(function(e){
+        $.post(`${baseurl}/alamatpelanggan`,{id:_id, _method:"delete"}).done(function(e){
           $("table#table-pengguna").DataTable().ajax.reload();
         });
       }
@@ -139,7 +169,7 @@
     processing: true,
     serverSide: true,
     ajax:{
-      url: "<?=base_url('kabko/all')?>",method: 'GET'
+      url: "<?=base_url('alamatpelanggan/all')?>",method: 'GET'
       },
       columns:
       [
@@ -148,8 +178,9 @@
           return meta.settings._iDisplayStart + meta.row + 1;
           } 
         },
-        {data: 'kode' },
-        {data: 'nama' },
+        {data: 'judul' },
+        {data: 'alamat' },
+        {data: 'kodepos' },
         {data: 'id',render:(data,type,row,meta)=>
           {
           var btnEdit = `<button class='btn btn-edit btn-sm btn-warning' data-id='${data}'> Edit </button>`;

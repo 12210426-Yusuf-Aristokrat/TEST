@@ -9,28 +9,19 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 class AlamatPelangganController extends BaseController
 {
-    public function view($page = "alamatpelanggan")
+    public function index()
     {
-        if (! is_file(APPPATH .'Views/pages/' .$page .'.php')) {
-            // Whoops, we don't have a page for that!
-            throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
-        }
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-
-        return view('template/header', $data)
-                .view('pages/'.$page)
-                .view('template/foooter');
+        return view('backend/alamatpelanggan/table',[
+            'data_kategori' => (new AlamatPelangganModel())->findAll()
+        ]);
     }
-    // public function tables(){
-    //     return view('pelanggan/table');
-    // }
+
     public function all()
     {
         $pm = new AlamatPelangganModel();
-        $pm->select('id , nama_depan,nama_belakang ,email , gender');
+        $pm->select('id , judul , alamat , kodepos');
         return(new Datatable($pm))
-            ->setFieldFilter(['nama_depan','nama_belakang','email','gender'])
+            ->setFieldFilter(['judul','alamat','kodepos'])
             ->draw();
     }
 
@@ -43,14 +34,10 @@ class AlamatPelangganController extends BaseController
 
     public function store(){
         $pm = new AlamatPelangganModel();
-        $sandi = $this->request->getvar('sandi');
 
         $id = $pm-> insert([
-            'nama_depan' => $this->request->getVar('nama_depan'),
-            'nama_belakang' => $this->request->getVar('nama_belakang'),
-            'gender' => $this->request->getVar('gender'),
-            'email' => $this->request->getVar('email'),
-            'sandi'=>password_hash($sandi, PASSWORD_BCRYPT),
+            'kode' => $this->request->getVar('kode'),
+            'nama' => $this->request->getVar('nama')
         ]);
         return $this->response->setJSON(['id'=>$id])
             ->setStatusCode(intval($id) > 0 ? 200 : 406);
@@ -64,10 +51,8 @@ class AlamatPelangganController extends BaseController
             throw PageNotFoundException::forPageNotFound();
 
         $hasil = $pm-> update($id,[
-            'nama_depan' => $this->request->getVar('nama_depan'),
-            'nama_belakang' => $this->request->getVar('nama_belakang'),
-            'gender' => $this->request->getVar('gender'),
-            'email' => $this->request->getVar('email'),
+            'kode' => $this->request->getVar('kode'),
+            'nama' => $this->request->getVar('nama')
         ]);
             return $this->response->setJSON(['result'=>$hasil]);
     }

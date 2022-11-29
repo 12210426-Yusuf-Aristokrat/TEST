@@ -3,8 +3,8 @@
   <?=$this->section('content')?>
 
     <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Data Kabupaten atau Kota</h1>
-                    <p class="mb-4">Data Kabupaten atau Kota untuk mengelola data pengguna yang ada di sistem.</p>
+<h1 class="h3 mb-2 text-gray-800">Data Kelurahan</h1>
+                    <p class="mb-4">Data Kelurahan untuk mengelola data pengguna yang ada di sistem.</p>
 
 
   <div class="container mt-5">
@@ -24,8 +24,8 @@
             <thead>
               <tr>
                 <th>No</th>
-                <th>kode</th> 
-                <th>Nama Kabupaten / Kota</th>
+                <th>kode Kelurahan</th> 
+                <th>Nama Kelurahan</th>
                 <th>Aksi</th>
               </tr>
             </thead>
@@ -42,15 +42,15 @@
           <button class="btn-close" data-bs-dismiss="modal" ></button>
         </div>
         <div class="modal-body">
-          <form method="post" action="<?=base_url('Kabko')?>" id="formPengguna">
+          <form method="post" action="<?=base_url('kelurahan')?>" id="formPengguna">
             <input type="hidden" name="id" />
             <input type="hidden" name="_method" />
             <div class="mb-3">
-              <label for="nama_depan" class="form-label">Kode</label>
+              <label for="nama_depan" class="form-label">Kode kelurahan</label>
               <input type="text" name="nama_depan" class="form-control">
             </div>
             <div class="mb-3">
-              <label for="nama_belakang" class="form-label">Nama Kabupaten / Kota</label>
+              <label for="nama_belakang" class="form-label">Nama kelurahan</label>
               <input type="text" name="nama_belakang" class="form-control">
           </form>
         </div>
@@ -100,7 +100,6 @@
 
     // kirim data 
     $("button#btn-kirim").on("click",function(){
-        // jika sama maka :
         $("form#formPengguna").submit();
     });
 
@@ -111,7 +110,7 @@
       let baseurl ="<?=base_url()?>";
       
 
-      $.get(`${baseurl}/kabko/${id}`).done((e)=>{
+      $.get(`${baseurl}/kelurahan/${id}`).done((e)=>{
         $("input[name=id]").val(e.id);
         $("input[name=kode]").val(e.kode);
         $("input[name=nama]").val(e.nama);
@@ -128,7 +127,7 @@
         let _id = $(this).data("id");
         let baseurl ="<?=base_url()?>";
 
-        $.post(`${baseurl}/Kabko`,{id:_id, _method:"delete"}).done(function(e){
+        $.post(`${baseurl}/kelurahan`,{id:_id, _method:"delete"}).done(function(e){
           $("table#table-pengguna").DataTable().ajax.reload();
         });
       }
@@ -139,7 +138,7 @@
     processing: true,
     serverSide: true,
     ajax:{
-      url: "<?=base_url('kabko/all')?>",method: 'GET'
+      url: "<?=base_url('kelurahan/all')?>",method: 'GET'
       },
       columns:
       [

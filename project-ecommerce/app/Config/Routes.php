@@ -110,24 +110,24 @@ $routes->group('kecamatan',['filters'=>'loginSession'], function(RouteCollection
     $routes->get('all','KecamatanController::all');
 });
 
-// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-//     $routes->get('/', 'PenggunaController::index');
-//     $routes->get('table', 'PenggunaController::tables');
-//     $routes->post('/','PenggunaController::store');
-//     $routes->patch('/','PenggunaController::update');
-//     $routes->delete('/','PenggunaController::delete');
-//     $routes->get('(:num)','PenggunaController::show/$1');
-//     $routes->get('all','PenggunaController::all');
-// });
-// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-//     $routes->get('/', 'PenggunaController::index');
-//     $routes->get('table', 'PenggunaController::tables');
-//     $routes->post('/','PenggunaController::store');
-//     $routes->patch('/','PenggunaController::update');
-//     $routes->delete('/','PenggunaController::delete');
-//     $routes->get('(:num)','PenggunaController::show/$1');
-//     $routes->get('all','PenggunaController::all');
-// });
+$routes->group('kelurahan',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'KelurahanController::index');
+    $routes->post('/','KelurahanController::store');
+    $routes->patch('/','KelurahanController::update');
+    $routes->delete('/','KelurahanController::delete');
+    $routes->get('(:num)','KelurahanController::show/$1');
+    $routes->get('all','KelurahanController::all');
+});
+
+$routes->group('alamatpelanggan',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'AlamatPelangganController::index');
+    $routes->post('/','AlamatPelangganController::store');
+    $routes->patch('/','AlamatPelangganController::update');
+    $routes->delete('/','AlamatPelangganController::delete');
+    $routes->get('(:num)','AlamatPelangganController::show/$1');
+    $routes->get('all','AlamatPelangganController::all');
+});
+
 // $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
 //     $routes->get('/', 'PenggunaController::index');
 //     $routes->get('table', 'PenggunaController::tables');

@@ -3,16 +3,16 @@
 namespace App\Controllers;
 
 namespace App\Controllers;
-use Agoenxz21\Datatables\Datatable;
-use App\Controllers\BaseController;
 use App\Models\KabkoModel;
+use App\Controllers\BaseController;
+use Agoenxz21\Datatables\Datatable;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class KabkoController extends BaseController
 {
     public function index()
     {
-        return view('backend/kecamatan/table',[
+        return view('backend/kabko/table',[
             'data_kategori' => (new KabkoModel())->findAll()
         ]);
     }
