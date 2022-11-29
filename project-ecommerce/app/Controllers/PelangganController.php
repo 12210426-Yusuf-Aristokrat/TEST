@@ -9,22 +9,13 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 class PelangganController extends BaseController
 {
-    public function view($page = "pelanggan")
+    public function index()
     {
-        if (! is_file(APPPATH .'Views/pages/' .$page .'.php')) {
-            // Whoops, we don't have a page for that!
-            throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
-        }
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-
-        return view('template/header', $data)
-                .view('pages/'.$page)
-                .view('template/foooter');
+        return view('backend/pelanggan/table',[
+            'data_kategori' => (new PelangganModel())->findAll()
+        ]);
     }
-    // public function tables(){
-    //     return view('pelanggan/table');
-    // }
+
     public function all()
     {
         $pm = new PelangganModel();

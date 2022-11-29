@@ -10,6 +10,7 @@ class PengirimanSeeder extends Seeder
     public function run()
     {
         $id = (new PengirimanModel()) ->insert([
+            'id'=> '3',
             'kurir_id' =>'1',
             'no_resi'=> '1983123613713',
             'tgl_krm'=> '2022-11-22',

@@ -75,42 +75,41 @@ $routes->group('login',['filters'=>'auth'] ,function(RouteCollection $routes){
 
 // add more  route :v
 $routes->group('pelanggan',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'PelangganController::view');
-    $routes->get('table', 'PelangganController::tables');
-    $routes->post('/','PelangganController::store');
-    $routes->patch('/','PelangganController::update');
-    $routes->delete('/','PelangganController::delete');
-    $routes->get('(:num)','PelangganController::show/$1');
-    $routes->get('all','PelangganController::all');
+    $routes->get('/', 'PelangganController::index');
+    $routes->post('/', 'PelangganController::store');
+    $routes->patch('/', 'PelangganController::update');
+    $routes->delete('/', 'PelangganController::delete');
+    $routes->get('(:num)', 'PelangganController::show/$1');
+    $routes->get('all', 'PelangganController::all');
 });
 
-$routes->group('alamat',['filters'=>'loginSession'], function(RouteCollection $routes){
-    $routes->get('/', 'AlamatPelangganController::view');
-    $routes->get('table', 'AlamatPelangganController::tables');
-    $routes->post('/','AlamatPelangganController::store');
-    $routes->patch('/','AlamatPelangganController::update');
-    $routes->delete('/','AlamatPelangganController::delete');
-    $routes->get('(:num)','AlamatPelangganController::show/$1');
-    $routes->get('all','AlamatPelangganController::all');
+$routes->group('provinsi',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'ProvinsiController::index');
+    $routes->post('/','ProvinsiController::store');
+    $routes->patch('/','ProvinsiController::update');
+    $routes->delete('/','ProvinsiController::delete');
+    $routes->get('(:num)','ProvinsiController::show/$1');
+    $routes->get('all','ProvinsiController::all');
 });
-// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-//     $routes->get('/', 'PenggunaController::index');
-//     $routes->get('table', 'PenggunaController::tables');
-//     $routes->post('/','PenggunaController::store');
-//     $routes->patch('/','PenggunaController::update');
-//     $routes->delete('/','PenggunaController::delete');
-//     $routes->get('(:num)','PenggunaController::show/$1');
-//     $routes->get('all','PenggunaController::all');
-// });
-// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-//     $routes->get('/', 'PenggunaController::index');
-//     $routes->get('table', 'PenggunaController::tables');
-//     $routes->post('/','PenggunaController::store');
-//     $routes->patch('/','PenggunaController::update');
-//     $routes->delete('/','PenggunaController::delete');
-//     $routes->get('(:num)','PenggunaController::show/$1');
-//     $routes->get('all','PenggunaController::all');
-// });
+
+$routes->group('kabko',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'KabkoController::index');
+    $routes->post('/','KabkoController::store');
+    $routes->patch('/','KabkoController::update');
+    $routes->delete('/','KabkoController::delete');
+    $routes->get('(:num)','KabkoController::show/$1');
+    $routes->get('all','KabkoController::all');
+});
+
+$routes->group('kecamatan',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'KecamatanController::index');
+    $routes->post('/','KecamatanController::store');
+    $routes->patch('/','KecamatanController::update');
+    $routes->delete('/','KecamatanController::delete');
+    $routes->get('(:num)','KecamatanController::show/$1');
+    $routes->get('all','KecamatanController::all');
+});
+
 // $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
 //     $routes->get('/', 'PenggunaController::index');
 //     $routes->get('table', 'PenggunaController::tables');

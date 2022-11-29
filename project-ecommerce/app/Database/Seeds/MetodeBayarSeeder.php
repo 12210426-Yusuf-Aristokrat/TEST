@@ -9,10 +9,15 @@ class MetodeBayarSeeder extends Seeder
 {
     public function run()
     {
-        $id = (new MetodeBayarModel()) ->insert([
-            'metode'  =>'Tunai',
-            'aktif'     =>'Y',
+        // $id = (new MetodeBayarModel()) ->insert([
+        //     'metode'  =>'Tunai',
+        //     'aktif'     =>'Y',
+        // ]);
+        // echo "id = $id";
+        $id = (new MetodeBayarModel())->insert([
+            'metode'=>'Tunai',
+            'aktif'=>'Y'
         ]);
-        echo "id = $id";
+        echo"id = $id";
     }
 }

@@ -14,7 +14,7 @@ class MitraSeeder extends Seeder
             'alamat'        =>'pontianak',
             'provinsi_id'   =>'1',
             'kabko_id'      =>'1',
-            'kecamatan_id'  =>'2',
+            'kecamatan_id'  =>'1',
             'kelurahan_id'  =>'2',
             'email'         =>'zeroelectro@gmail.com',
             'nohp'          =>'9182301',

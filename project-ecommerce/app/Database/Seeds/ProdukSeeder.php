@@ -10,7 +10,7 @@ class ProdukSeeder extends Seeder
     public function run()
     {
         $id = (new ProdukModel()) ->insert([
-            'mitra_id'  =>'1',
+            'mitra_id'  =>'2',
             'detail_produk'=>'laptop tapir asoes',
             'rating'=>'6.9',
             'aktif'=>'Y',

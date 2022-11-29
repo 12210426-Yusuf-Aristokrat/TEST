@@ -1,20 +1,39 @@
 
-  
-  <div class="container">
-    <button class=" btn btn-sm btn-primary" id="btn-tambah">Tambah Data</button>
-      <table id="table-pengguna" class="datatable table table-bordered">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama Depan</th> 
-            <th>Nama belakang</th>
-            <th>Email</th>
-            <th>Gender</th>
-            <th>Aksi</th>
-          </tr>
-        </thead>
-      </table>
+  <?=$this->extend('backend/template')?>
+  <?=$this->section('content')?>
+
+    <!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Data kecamatan</h1>
+                    <p class="mb-4">Data kecamatan untuk mengelola data pengguna yang ada di sistem.</p>
+
+
+  <div class="container mt-5">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            
+            <button id="btn-tambah" class="btn btn-primary">Tambah data</button>
+            <h6 class="m-0 font-weight-bold text-primary">
+                
+            </h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                                    
+          <table id="table-pengguna" class="datatable table table-bordered">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>kode Kecamatan</th> 
+                <th>Nama Kecamatan</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+    </div>
   </div>
+  <!--  -->
   <div id="modalForm" class="modal">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -23,36 +42,16 @@
           <button class="btn-close" data-bs-dismiss="modal" ></button>
         </div>
         <div class="modal-body">
-          <form method="post" action="<?=base_url('pelanggan')?>" id="formPengguna">
+          <form method="post" action="<?=base_url('kecamatan')?>" id="formPengguna">
             <input type="hidden" name="id" />
             <input type="hidden" name="_method" />
             <div class="mb-3">
-              <label for="nama_depan" class="form-label">Nama depan</label>
+              <label for="nama_depan" class="form-label">Kode Kecamatan</label>
               <input type="text" name="nama_depan" class="form-control">
             </div>
             <div class="mb-3">
-              <label for="nama_belakang" class="form-label">Nama belakang</label>
+              <label for="nama_belakang" class="form-label">Nama Kecamatan</label>
               <input type="text" name="nama_belakang" class="form-control">
-            </div>
-            <div class="mb-3">
-              <label for="gender" class="form-label">gender</label>
-              <select type="text" name="gender" class="form-control">
-                <option value="L">Laki-Laki</option>
-                <option value="p">Perempuan</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Alamat Email</label>
-              <input type="email" name="email" class="form-control">
-            </div>
-            <div class="mb-3">
-              <label for="sandi" class="form-label">Sandi</label>
-              <input type="password" name="sandi" id="sandi" class="form-control">
-            </div>
-            <div class="mb-3">
-              <label for="konfirm-sandi" class="form-label">Konfirmasi sandi</label>
-              <input type="password" name="konfirm-sandi" id="konfirm-sandi" class="form-control">
-            </div>
           </form>
         </div>
         <div class="modal-footer">
@@ -61,7 +60,16 @@
       </div>
     </div>
   </div>
+  <?=$this->endSection()?>
   <!-- Script : -->
+  <?=$this->section('script')?>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
+    crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/gh/agoenxz2186/submitAjax@develop/submit_ajax.js" 
+    ></script> 
+<link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
+<script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> 
+
   <script>
   $(document).ready(function(){
 
@@ -111,12 +119,10 @@
       let baseurl ="<?=base_url()?>";
       
 
-      $.get(`${baseurl}/pelanggan/${id}`).done((e)=>{
+      $.get(`${baseurl}/kecamatan/${id}`).done((e)=>{
         $("input[name=id]").val(e.id);
-        $("input[name=nama_depan]").val(e.nama_depan);
-        $("input[name=nama_belakang]").val(e.nama_belakang);
-        $("select[name=gender]").val(e.gender);
-        $("input[name=email]").val(e.email);
+        $("input[name=kode]").val(e.kode);
+        $("input[name=nama]").val(e.nama);
         $("#modalForm").modal("show");
         $("#formPengguna input[name=_method]").val("patch");
       });
@@ -130,7 +136,7 @@
         let _id = $(this).data("id");
         let baseurl ="<?=base_url()?>";
 
-        $.post(`${baseurl}/pelanggan`,{id:_id, _method:"delete"}).done(function(e){
+        $.post(`${baseurl}/kecamatan`,{id:_id, _method:"delete"}).done(function(e){
           $("table#table-pengguna").DataTable().ajax.reload();
         });
       }
@@ -141,7 +147,7 @@
     processing: true,
     serverSide: true,
     ajax:{
-      url: "<?=base_url('pelanggan/all')?>",method: 'GET'
+      url: "<?=base_url('kecamatan/all')?>",method: 'GET'
       },
       columns:
       [
@@ -150,18 +156,8 @@
           return meta.settings._iDisplayStart + meta.row + 1;
           } 
         },
-        {data: 'nama_depan' },
-        {data: 'nama_belakang' },
-        {data: 'email' },
-        {data: 'gender',render:(data,type,row,meta)=>{
-          if(data === "L"){
-            return "Laki-Laki";
-          }else if(data === "P"){
-            return "Perempuan";
-          }
-          return data;
-        } 
-        },
+        {data: 'kode' },
+        {data: 'nama' },
         {data: 'id',render:(data,type,row,meta)=>
           {
           var btnEdit = `<button class='btn btn-edit btn-sm btn-warning' data-id='${data}'> Edit </button>`;
@@ -173,6 +169,6 @@
     });
   });
   </script>
-
+  <?=$this->endSection()?>
 
 

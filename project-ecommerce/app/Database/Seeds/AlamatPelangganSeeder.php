@@ -15,7 +15,7 @@ class AlamatPelangganSeeder extends Seeder
             'alamat'        =>'jalan perdamaian 1 no.10',
             'provinsi_id'   =>'1',
             'kabko_id'      =>'1',
-            'kecamatan_id'  =>'2',
+            'kecamatan_id'  =>'1',
             'kelurahan_id'  =>'2',
             'kodepos'       =>'78121'
         ]);

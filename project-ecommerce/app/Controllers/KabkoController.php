@@ -10,28 +10,19 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 class KabkoController extends BaseController
 {
-    public function view($page = "kabko")
+    public function index()
     {
-        if (! is_file(APPPATH .'Views/pages/' .$page .'.php')) {
-            // Whoops, we don't have a page for that!
-            throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
-        }
-
-        $data['title'] = ucfirst($page); // Capitalize the first letter
-
-        return view('template/header', $data)
-                .view('pages/'.$page)
-                .view('template/foooter');
+        return view('backend/kecamatan/table',[
+            'data_kategori' => (new KabkoModel())->findAll()
+        ]);
     }
-    // public function tables(){
-    //     return view('pelanggan/table');
-    // }
+
     public function all()
     {
         $pm = new KabkoModel();
-        $pm->select('id ,kode,nama');
+        $pm->select('id , kode , nama');
         return(new Datatable($pm))
-            ->setFieldFilter(['kode','nama_belakang','email','gender'])
+            ->setFieldFilter(['kode','nama'])
             ->draw();
     }
 
@@ -44,14 +35,10 @@ class KabkoController extends BaseController
 
     public function store(){
         $pm = new KabkoModel();
-        $sandi = $this->request->getvar('sandi');
 
         $id = $pm-> insert([
-            'nama_depan' => $this->request->getVar('nama_depan'),
-            'nama_belakang' => $this->request->getVar('nama_belakang'),
-            'gender' => $this->request->getVar('gender'),
-            'email' => $this->request->getVar('email'),
-            'sandi'=>password_hash($sandi, PASSWORD_BCRYPT),
+            'kode' => $this->request->getVar('kode'),
+            'nama' => $this->request->getVar('nama')
         ]);
         return $this->response->setJSON(['id'=>$id])
             ->setStatusCode(intval($id) > 0 ? 200 : 406);
@@ -65,10 +52,8 @@ class KabkoController extends BaseController
             throw PageNotFoundException::forPageNotFound();
 
         $hasil = $pm-> update($id,[
-            'nama_depan' => $this->request->getVar('nama_depan'),
-            'nama_belakang' => $this->request->getVar('nama_belakang'),
-            'gender' => $this->request->getVar('gender'),
-            'email' => $this->request->getVar('email'),
+            'kode' => $this->request->getVar('kode'),
+            'nama' => $this->request->getVar('nama')
         ]);
             return $this->response->setJSON(['result'=>$hasil]);
     }

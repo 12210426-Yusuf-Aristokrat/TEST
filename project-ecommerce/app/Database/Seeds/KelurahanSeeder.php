@@ -12,7 +12,7 @@ class Kelurahanseeder extends Seeder
         $id = (new KelurahanModel()) ->insert([
             'kode'=> '6171010006',
             'nama'=> 'Kota Baru',
-            'kecamatan_id'=> '2'
+            'kecamatan_id'=> '1'
         ]);
         echo "id = $id";
         //

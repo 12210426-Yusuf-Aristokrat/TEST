@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use SebastianBergmann\Type\TrueType;
 
 class DetailPemesananModel extends Model
 {
@@ -13,7 +14,7 @@ class DetailPemesananModel extends Model
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
+    protected $protectFields    = false;
     protected $allowedFields    = [];
 
     // Dates

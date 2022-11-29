@@ -10,7 +10,7 @@ class VarianProdukSeeder extends Seeder
     public function run()
     {
         $id = (new VarianProdukModel()) ->insert([
-            'produk_id'     => '1',
+            'produk_id'     => '2',
             'varian'        =>  'asoes',
             'stok'          =>  '20',
             'harga_jual'    =>  '15000000',

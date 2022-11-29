@@ -119,6 +119,7 @@ class PenggunaController extends BaseController
         return $this->response->setJSON(['id'=>$id])
             ->setStatusCode(intval($id) > 0 ? 200 : 406);
     }
+    
 
     public function update(){
         $pm = new PenggunaModel();
