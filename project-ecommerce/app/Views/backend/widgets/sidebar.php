@@ -2,11 +2,11 @@
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-    <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-laugh-wink"></i>
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?=site_url('pelanggan')?>">
+    <div class="sidebar-brand-icon mx-auto d-flex align-items-center justify-content-center ">
+    <img src="<?=base_url('assets')?>/BootstrapAdmin/img/wp_logo.svg" alt="wp_logo" height="60" >
     </div>
-    <div class="sidebar-brand-text mx-3">WP<sup>ECO</sup></div>
+    <!-- <div class="sidebar-brand-text mx-3">WP<sup>ECO</sup></div> -->
 </a>
 
 <!-- Divider -->
@@ -43,12 +43,15 @@
             <a class="collapse-item" href="<?=site_url('kecamatan')?>">Kecamatan</a>
             <a class="collapse-item" href="<?=site_url('kelurahan')?>">Kelurahan</a>
             <a class="collapse-item" href="<?=site_url('alamatpelanggan')?>">Alamat Pelanggan</a>
+            <a class="collapse-item" href="<?=site_url('kategoriproduk')?>">Kategori Produk</a>
+            <a class="collapse-item" href="<?=site_url('mitra')?>">Mitra</a>
+            <a class="collapse-item" href="<?=site_url('produk')?>">produk</a>
         </div>
     </div>
 </li>
  
 
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
         aria-expanded="true" aria-controls="collapse3">
         <i class="fas fa-fw fa-folder"></i>
@@ -56,11 +59,11 @@
     </a>
     <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Menu Arsip</h6>
-            <a class="collapse-item" href="<?=site_url('arsip')?>">Arsip</a> 
+            <h6 class="collapse-header">Menu tambahan</h6>
+            <a class="collapse-item" href="<?=site_url('')?>">tembahan</a> 
         </div>
     </div>
-</li>
+</li> -->
  
 </ul>
 <!-- End of Sidebar -->

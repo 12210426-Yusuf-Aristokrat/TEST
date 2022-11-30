@@ -128,33 +128,33 @@ $routes->group('alamatpelanggan',['filters'=>'loginSession'], function(RouteColl
     $routes->get('all','AlamatPelangganController::all');
 });
 
-// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-//     $routes->get('/', 'PenggunaController::index');
-//     $routes->get('table', 'PenggunaController::tables');
-//     $routes->post('/','PenggunaController::store');
-//     $routes->patch('/','PenggunaController::update');
-//     $routes->delete('/','PenggunaController::delete');
-//     $routes->get('(:num)','PenggunaController::show/$1');
-//     $routes->get('all','PenggunaController::all');
-// });
-// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-//     $routes->get('/', 'PenggunaController::index');
-//     $routes->get('table', 'PenggunaController::tables');
-//     $routes->post('/','PenggunaController::store');
-//     $routes->patch('/','PenggunaController::update');
-//     $routes->delete('/','PenggunaController::delete');
-//     $routes->get('(:num)','PenggunaController::show/$1');
-//     $routes->get('all','PenggunaController::all');
-// });
-// $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
-//     $routes->get('/', 'PenggunaController::index');
-//     $routes->get('table', 'PenggunaController::tables');
-//     $routes->post('/','PenggunaController::store');
-//     $routes->patch('/','PenggunaController::update');
-//     $routes->delete('/','PenggunaController::delete');
-//     $routes->get('(:num)','PenggunaController::show/$1');
-//     $routes->get('all','PenggunaController::all');
-// });
+$routes->group('kategoriproduk',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'KategoriProdukController::index');
+    $routes->post('/','KategoriProdukController::store');
+    $routes->patch('/','KategoriProdukController::update');
+    $routes->delete('/','KategoriProdukController::delete');
+    $routes->get('(:num)','KategoriProdukController::show/$1');
+    $routes->get('all','KategoriProdukController::all');
+});
+
+$routes->group('mitra',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'MitraController::index');
+    $routes->post('/','MitraController::store');
+    $routes->patch('/','MitraController::update');
+    $routes->delete('/','MitraController::delete');
+    $routes->get('(:num)','MitraController::show/$1');
+    $routes->get('all','MitraController::all');
+});
+
+$routes->group('produk',['filters'=>'loginSession'], function(RouteCollection $routes){
+    $routes->get('/', 'ProdukController::index');
+    $routes->post('/','ProdukController::store');
+    $routes->patch('/','ProdukController::update');
+    $routes->delete('/','ProdukController::delete');
+    $routes->get('(:num)','ProdukController::show/$1');
+    $routes->get('all','ProdukController::all');
+});
+
 // $routes->group('pengguna',['filters'=>'loginSession'], function(RouteCollection $routes){
 //     $routes->get('/', 'PenggunaController::index');
 //     $routes->get('table', 'PenggunaController::tables');
